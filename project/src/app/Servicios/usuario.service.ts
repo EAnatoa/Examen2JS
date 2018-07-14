@@ -6,13 +6,13 @@ import {HttpClient} from "@angular/common/http";
 export class UsuarioService {
   contador=0;
   parametros;
-  urlAutos= 'http://localhost:1337/Maestro';
   urlnueva;
   mostrar=true;
   urlnuevaHijos;
   id; total=0;
   visible=true;
   indiceSeleccionado;
+  indiceHijos;
   elmiminartotal=0;
   emitircambioAuto:EventEmitter<number>=new EventEmitter();
   emitircambioCompra:EventEmitter<number>=new EventEmitter();
@@ -33,9 +33,12 @@ export class UsuarioService {
     this.total=totalCompra;
     this.emitircambioCompra.emit(totalCompra);
   }
- setIndice(indice){
+  setIndice(indice){
     this.indiceSeleccionado=indice;
- }
+  }
+  setIndiceHijo(indice){
+    this.indiceHijos=indice;
+  }
   emitirQuitarTotal(cambioAuto:number){
     this. elmiminartotal=cambioAuto;
     this.emitirCambioTota.emit(cambioAuto);

@@ -21,27 +21,19 @@ export class ModeloPapaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get<Pokemons>(this.urlAutos).subscribe((data: Pokemons) => {
-      this.pokemons = data;
-    });
-    this.http.get<Maestro>(this.urlHijos).subscribe((data: Maestro) => {
-      this.hijos = data;
-    });
     this.escucharCambiosAuto();
   }
 
   escucharCambiosAuto() {
-    this._usuarioService.emitircambioAuto.subscribe((pokemons) => {
-      this.contador = pokemons;
+    this._usuarioService.emitircambioAuto.subscribe((autos) => {
+      this.contador = autos;
     });
   }
 
-    seleccionar(){
-      this.contador++;
-      this.totalCompra=this.totalCompra+50;
-      this._usuarioService.colocarTotal(this.totalCompra);
-      this._usuarioService.emitirCambio(this.contador);
-    }
+  seleccionar(){
+    this.contador++;
+    this.totalCompra=this.totalCompra+50;
+    this._usuarioService.colocarTotal(this.totalCompra);
+    this._usuarioService.emitirCambio(this.contador);
   }
-
-
+}

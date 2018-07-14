@@ -10,34 +10,25 @@ import {Pokemons, Maestro} from "../home/home.component";
 })
 export class InfoModeloComponent implements OnInit  {
 
-  hijos;
-pokemons;
-urlHijos='http://localhost:1337/Maestro?nombres=Estefania';
-urlPokemons= 'http://localhost:1337/Pokemon?nombrePokemon=Chicorita';
-contador=this._usuarioService.contador;
-totalCompra=this._usuarioService.total;
-constructor(private http: HttpClient, private _usuarioService: UsuarioService, private _router:Router) {
-}
+  hijos:Maestro;
+  autos:Pokemons;
+  urlHijos='http://localhost:1337/Maestro?nombres=Erika&apellidos=Anatoa';
+  urlPokemons= 'http://localhost:1337/Pokemon?nombrePokemon=Pikachu&id=1';
+  contador=this._usuarioService.contador;
+  constructor(private http: HttpClient, private _usuarioService: UsuarioService) {
+  }
 
-ngOnInit() {
-  this.http.get<Pokemons>(this.urlPokemons).subscribe((data: Pokemons) => {
-    this.pokemons = data;
-    console.log('modeloooo '+data.nombrePokemon);
+  ngOnInit() {
+    this.http.get<Pokemons>(this.urlPokemons).subscribe((data: Pokemons) => {
+      this.autos = data[0];
+      console.log('************INFO-MODELO-COMPONENT****'+data.nombrePokemon);
+    });
+    this.http.get<Maestro[]>(this.urlHijos).subscribe((data:Maestro[]) => {
+      this.hijos = data[0];
+    });
 
-  });
-  this.http.get<Maestro>(this.urlHijos).subscribe((data: Maestro) => {
-    this.hijos = data;
-    console.log('modeloooo '+data.numeroMedalla);
+  }
 
-  });
-  this.escucharCambiosAuto();
-}
-
-escucharCambiosAuto() {
-  this._usuarioService.emitircambioAuto.subscribe((pokemons) => {
-    this.contador = pokemons;
-  });
-}
 
 }
 

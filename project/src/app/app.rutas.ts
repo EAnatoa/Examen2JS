@@ -11,11 +11,11 @@ export const RUTAS_APP: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'modeloAuto',
+    path: 'modeloPokemon',
     component: AtributoPapaComponent,
   },
   {
-    path: 'modeloConductor',
+    path: 'modeloMaestro',
     component: ModeloPapaComponent,
   },
   {
