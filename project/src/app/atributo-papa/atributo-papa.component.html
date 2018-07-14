@@ -1,0 +1,38 @@
+<app-info-hijos></app-info-hijos>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let info of pokemons; let indice=index" style="margin-right: 15px; margin-top: 15px">
+      <div class="card" style="width: 21rem;">
+        <div class="row">
+          <div class="col-sm-6">
+            <img class="card-img-top" src="http://omargamboa.com/wp-content/uploads/2016/07/omargamboa-pikachu.jpg" alt="Card image cap">
+          </div>
+          <div class="col-sm-6">
+            <div class="col-sm-8 ">
+              {{info.nombrePokemon}}
+            </div>
+            <div class="col-sm-6 ">
+              {{info.numeroPokemon}}
+            </div>
+            <a routerLink="/modeloMaestro" style="align-content: center" (click)="seleccionar(indice)">Seleccionar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"> </div>
+    <div class="col-sm-4">
+      <button type="button" class="btn btn-secondary" style="margin-top: 40px">Cargar mas</button>
+    </div>
+    <div class="col-sm-4"> </div>
+  </div>
+</div>
+
+
+
+

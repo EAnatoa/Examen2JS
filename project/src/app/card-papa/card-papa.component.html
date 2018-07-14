@@ -1,0 +1,58 @@
+
+<div class="container">
+  <div class="row">
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="buscar"
+             name="nombre" [(ngModel)]="nombre" #nombreMarcaFormulario="ngModel">
+      <div class="input-group-append">
+        <button type="button" (click)="mostrarBusqueda()" id="buscar" class="btn btn-primary">
+          <i class="fas fa-search"> </i>
+          </button>
+      </div>
+
+    </div>
+    <ul>
+      <li>1</li>
+    </ul>
+  </div>
+</div>
+
+<div >
+  <div class="container">
+    <div class="row" style="margin-left: 12px">
+      <div class="col-sm-3" *ngFor="let info of maestro; let indice=index" style="margin-right: 25px; margin-top: 25px">
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+          <h4 style="text-align: center">Nombres: {{info.nombres}}</h4>
+          <div class="row">
+            <div class="col-sm-6">
+              <p style="text-align: center">  Apellidos: {{info.apellidos}}</p>
+            </div>
+            <div class="col-sm-6" >
+              <img class="card-img-top" src="https://a.wattpad.com/cover/66922677-288-k907631.jpg" alt="Card image cap">
+            </div>
+          </div>
+          </div>
+          <button type="button" class="btn btn-secondary" (click)="seleccionar(indice)">Seleccionar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-4"> </div>
+  <div class="col-sm-4">
+    <button type="button" class="btn btn-secondary" style="margin-top: 40px">Cargar mas</button>
+  </div>
+  <div class="col-sm-4"> </div>
+</div>
+</div>
+
+<div >
+  <app-card-hijo *ngIf="mostrar"></app-card-hijo>
+</div>
+
+
