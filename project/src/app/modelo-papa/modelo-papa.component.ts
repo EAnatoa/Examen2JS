@@ -25,8 +25,8 @@ export class ModeloPapaComponent implements OnInit {
   }
 
   escucharCambiosAuto() {
-    this._usuarioService.emitircambioAuto.subscribe((autos) => {
-      this.contador = autos;
+    this._usuarioService.emitircambioAuto.subscribe((pokemons) => {
+      this.contador = pokemons;
     });
   }
 
