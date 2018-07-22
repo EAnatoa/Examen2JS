@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./card-papa.component.css']
 })
 export class CardPapaComponent implements OnInit {
-  selccionaAuto:boolean;
+  selccionaPokemon:boolean;
   nombre;
   mostrar=false;
   pokemons:Pokemons[];
@@ -25,7 +25,7 @@ export class CardPapaComponent implements OnInit {
   }
 
   escucharCambiosAuto() {
-    this._usuarioService.emitircambioAuto.subscribe((pokemons) => {this.selccionaAuto= pokemons;})
+    this._usuarioService.emitircambioAuto.subscribe((pokemons) => {this.selccionaPokemon= pokemons;})
   }
 
   escucharCambioBusqueda() {
@@ -57,7 +57,7 @@ export class CardPapaComponent implements OnInit {
       this.maestro = data;
     });
 
-    this._usuarioService.guardarUrlHijos('http://localhost:1337/Pokemon?nombrePokemon=Pikachu');
+    this._usuarioService.guardarUrlHijos('http://localhost:1337/Pokemon?nombrePokemon='+this.nombre);
 
   }
 

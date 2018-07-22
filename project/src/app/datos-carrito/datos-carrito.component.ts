@@ -10,21 +10,21 @@ import {CookieService} from "ngx-cookie-service";
   styleUrls: ['./datos-carrito.component.css']
 })
 export class DatosCarritoComponent implements OnInit {
-  contador=this._usuarioService.contador;
+
   urlUsuarios= 'http://localhost:1337/Usuarios';
   usuarios; visible;
   nombre; nombreEditar;
   apellido; apellidoEditar;
   correo; correoEditar;
-  total=0;
+  total=0;contador;
   constructor(private _usuarioService: UsuarioService, private http: HttpClient, private cookieService: CookieService) { }
 
   ngOnInit() {
     this.http.get<Pokemons[]>(this.urlUsuarios).subscribe((data: Pokemons[]) => {
       this.usuarios = data;
-      console.log(this.usuarios.map(datos=>datos.nombreModelo));
-    });
 
+    });
+    this.contador = this._usuarioService.contador;
     this.total=this._usuarioService.total;
     this.visible=this._usuarioService.visible;
     this.escucharcambiosEliminar();
