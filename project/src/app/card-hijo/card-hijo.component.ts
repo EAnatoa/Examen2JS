@@ -20,7 +20,7 @@ export class CardHijoComponent implements OnInit {
   mostrar(){
     this.http.get<Pokemons[]>(this._usuarioservice.urlnuevaHijos).subscribe((data: Pokemons[]) => {
       this.pokemons = data;
-
+      console.log(this.pokemons.map(data=>data.nombrePokemon));
     });
   }
 

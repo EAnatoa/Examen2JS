@@ -11,20 +11,17 @@ import {Observable} from "rxjs/index";
   styleUrls: ['./modelo-papa.component.css']
 })
 export class ModeloPapaComponent implements OnInit {
+  hijos: Maestro;
   pokemons: Pokemons;
+  urlHijos='http://localhost:1337/Pokemon?nombres=Cristel';
+  urlAutos= 'http://localhost:1337/Maestro?nombrePokemon=Esnorlac';
   contador=this._usuarioService.contador;
-  totalCompra = this._usuarioService.total;
-  visible=false;
-  constructor(private http: HttpClient, private _usuarioService: UsuarioService) {
+  totalCompra=this._usuarioService.total;
+  constructor(private http: HttpClient, private _usuarioService: UsuarioService, private _router:Router) {
   }
 
   ngOnInit() {
-    if(this._usuarioService.indiceHijos===2){
-      this.visible=false;
-
-    }else{
-      this.escucharCambiosAuto();
-    }
+    this.escucharCambiosAuto();
   }
 
 

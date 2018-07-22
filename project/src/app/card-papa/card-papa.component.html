@@ -1,5 +1,5 @@
 
-<div class="container" style="margin-bottom: 30px">
+<div class="container">
   <div class="row">
     <div class="input-group mb-2">
       <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="buscar"
@@ -18,9 +18,9 @@
 </div>
 
 <div >
-  <div class="container" style="margin-bottom: 20px">
+  <div class="container">
     <div class="row" style="margin-left: 12px">
-      <div class="col-sm-4" *ngFor="let info of maestro; let indice=index" style="margin-bottom: 15px" >
+      <div class="col-sm-3" *ngFor="let info of maestro; let indice=index" style="margin-right: 25px; margin-top: 25px">
         <div class="card" style="width: 18rem">
           <div class="card-body">
           <h4 style="text-align: center">Nombres: {{info.nombres}}</h4>
@@ -45,7 +45,7 @@
 <div class="row">
   <div class="col-sm-4"> </div>
   <div class="col-sm-4">
-    <button type="button" class="btn btn-secondary" style="margin-top: 40px" *ngIf="mostrar">Cargar mas</button>
+    <button type="button" class="btn btn-secondary" style="margin-top: 40px">Cargar mas</button>
   </div>
   <div class="col-sm-4"> </div>
 </div>
